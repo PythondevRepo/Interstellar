@@ -88,7 +88,7 @@ int initCarroArmato(int X, int vita, int scudo) {
     tank.X = X;
     tank.vita = vita;
     tank.scudo = scudo;
-    tank.simbolo='Y';
+    tank.simbolo='W';
     tank.colpito = FALSE;
 
 	return errore;
@@ -217,11 +217,13 @@ int creaMeteora(){
     
         X=(int)(rand()%BASE);
         Y=-1;        
-        if (levelDifficulty >= 5)
+        if (levelDifficulty >= 5){		
 			Vx=(int)(rand()%4);
-		else
+	        Vy=(int)(rand()%2)+1;
+		} else {
 			Vx=0;
-        Vy=(int)(rand()%2)+1;
+		    Vy=1;
+		}
         
         
         initMeteora(numMeteore,X,Y,Vx,Vy);
@@ -311,7 +313,7 @@ void disegna(){
     	printf("COLPITO - HAI ANCORA %d PUNTI VITA!\n",tank.vita);
         tank.vita--;
         tank.colpito = FALSE;
-        tank.simbolo = 'Y';
+        tank.simbolo = 'W';
 	} 
 }  
 
